@@ -1,0 +1,317 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+  <title>Your Files</title>
+  <link rel="icon" href="{% static 'img/logo.png' %}">
+  <link rel="stylesheet" href="{% static 'css/savecode.css'%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="{% static 'js/savecode.js'%}"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+
+</head>
+
+<style>
+  .popback {
+    position: fixed;
+    width: 100%;
+    height: 1100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: -680px;
+    margin-left: -200px;
+  }
+
+  .ren {
+    position: fixed;
+    width: 600px;
+    height: 270px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 200px;
+    margin-left: 620px;
+    padding: 20px 40px;
+    border: 3px solid black;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+
+  .ren label {
+
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+  }
+
+  .ren p {
+    font-size: 26px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 5px;
+  }
+
+  .ren input {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-left: 5px;
+    width: 500px;
+    font-size: 20px;
+
+  }
+
+  .canbtn {
+    margin-top: 25px;
+
+  }
+</style>
+
+<body>
+
+
+
+
+  <div class="all">
+    <h1
+      style="font-size: 60px ;font-family: 'Righteous', cursive;color: rgb(71, 206, 206);position: absolute;margin-left: 800px;letter-spacing: 5px;">
+      Your Files</h1>
+    <a href="{% url 'home' %}">
+      <img src="{% static 'img\logo.png' %}" class="logo"></a>
+
+    <div class="container_bar">
+
+      <div id="user">
+        <img src="{% static 'img/boy.png'%}">
+        {% if user.is_authenticated %}
+        <label id="user_name">{{user.username}}</label>
+        {% endif %}
+      </div>
+      <div
+        style="width: 4px;height: 130px;background-color: rgb(155, 155, 155);margin-left: 1100px;position: absolute;margin-top: 10px;border-radius: 50px;">
+      </div>
+
+      <p style="position: fixed;visibility: hidden;" class="total">{{len}}</p>
+      <label class="count_file">{{len}} / <a>Files</a></label>
+
+
+    </div>
+
+
+
+    <div class="files_box">
+
+      <form role="search" method="post" action="{% url 'searchfile' %}"
+        style="margin: 0;border: 2px solid black;margin-left: 60px;">
+        {% csrf_token %}
+        <input id="search" type="search" placeholder="Search..." name="sbar" value="">
+        <button class="btnsearch"><a class="fa fa-search"></a></button>
+      </form>
+
+      <div style="margin-top: -50px;padding-bottom: 50px;">
+        <button class="button-54" role="button" style="font-size: 20px;padding: 10px 10px;margin-left:1240px;"><a
+            style="text-decoration: none;color: black;" href="{% url 'filesave' %}">Add File</a>
+          <a class="fa fa-file"></a></button>
+
+      </div>
+
+      <div class="popback">
+        <div class="ren">
+
+          <form method="post" action="{% url 'renamefile' %}"
+            style="width: 1000;position: absolute;margin-left: 0px;margin-top: -45px;background-color:rgb(255, 255, 255);padding: 10px;margin-top: -15px;">
+            <label id="poplabel">Rename File</label>
+            <hr>
+            <p>File name :</p>
+            <input type="text" maxlength="15" class="fileplaceholder" id="gdf" name="renamedfilename">
+
+            <input type="button" style="width: 100px;" class="canbtn" value="Cancel">
+            {% csrf_token %}
+
+            <!-- hide imput part -->
+            <input style="visibility: hidden;position: fixed;" name="oldname" id="gd" value="">
+            <input style="visibility: hidden;position: fixed;" name="result" id="status" value="">
+
+            <input type="submit" style="width: 100px;" class="subbtn" name="newfile" value="Ok👍" id="disison">
+
+          </form>
+        </div>
+      </div>
+      {% for j in files %}
+      <div>
+
+        <div id="files" style="display: flex;width: 1100px;margin-left: 170px;">
+
+          <p style="margin-top: -0px;margin-left: 90px;width: 200px;">File <a>{{forloop.counter}}</a>:</p>
+
+
+          <form id="deel" style="margin: 0px;padding: 0px;background-color: rgba(0, 0, 0, 0);" method="post"
+            action="{% url 'openfile' %}">
+            {% csrf_token %}
+
+            <p style="margin-top: -0px;margin-right:100px;margin-left: 100px;" class=filename-{{forloop.counter}}>
+              <a>{{j}}</a>
+            </p>
+
+            <input style="visibility: hidden;position: fixed;" name="oldname" id="done" value="">
+
+          </form>
+
+
+          <p style="margin-top: -0px;" class="renameicon"><i class='fa fa-edit' id="" style='font-size:36px'></i></p>
+
+          <p class=file-{{forloop.counter}} style="position: fixed;visibility: hidden;">{{j}}</p>
+
+          <a class=rename-{{forloop.counter}}
+            style="margin-right: 80px;font-size: 30px;margin-left: -40px;margin-top: 12px;color: black;">rename</a>
+
+          <p style="margin-top: -2px;" class="deleteicon"><i class='fa fa-trash' id="" style='font-size:36px'></i></p>
+
+          <a id="deletebtn"
+            style="margin-right: 100px;font-size: 30px;margin-left: -40px;margin-top: 13px;color: black;text-decoration: none;"
+            name="fff" class=delete-{{forloop.counter}}>delete</a>
+
+        </div>
+
+        {% endfor %}
+
+
+
+
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+
+    </div>
+
+
+</body>
+
+<script>
+
+
+
+  $(document).ready(function () {
+
+    var len = $(".total").text();
+    $(".popback").hide();
+
+    for (let i = 1; i <= len; i++) {
+
+
+      const cname = ".rename-" + [i]
+      const name = ".file-" + [i]
+      var len = $(".total").text();
+      var fname = $(name).text();
+
+      $(cname).click(function () {
+
+        if ($('.popback').is(':hidden')) {
+
+          document.getElementById("gdf").value = $(name).text();;
+          document.getElementById("gd").value = $(name).text();;
+          document.getElementById("gdf").disabled = false;
+          document.getElementById("poplabel").innerHTML = "Rename File";
+          document.getElementById("disison").value = "Ok 👍";
+          document.getElementById("status").value = "1";
+
+          $('.popback').show();
+          $('.ren').slideDown();
+        }
+
+      });
+
+
+    }
+
+  });
+
+  $(".canbtn").click(function () {
+
+    $('.ren').slideUp();
+    $('.popback').hide();
+
+  });
+
+
+  $(document).ready(function () {
+
+    var len = $(".total").text();
+    $(".popback").hide();
+
+    for (let i = 1; i <= len; i++) {
+
+
+      const cname = ".delete-" + [i]
+      const name = ".file-" + [i]
+      var len = $(".total").text();
+      var fname = $(name).text();
+
+      $(cname).click(function () {
+
+        if ($('.popback').is(':hidden')) {
+
+          document.getElementById("gd").value = $(name).text();
+          document.getElementById("gdf").value = $(name).text();
+          document.getElementById("poplabel").innerHTML = "Delete File";
+          document.getElementById("gdf").disabled = true;
+          document.getElementById("status").value = "0";
+          document.getElementById("disison").value = "Yes !";
+
+
+          $('.popback').show();
+          $('.ren').slideDown();
+        }
+
+      });
+
+
+    }
+
+  });
+
+
+  $(document).ready(function () {
+
+    var len = $(".total").text();
+
+    for (let i = 1; i <= len; i++) {
+
+
+      const cname = ".filename-" + [i]
+      const name = ".file-" + [i]
+      var len = $(".total").text();
+      var fname = $(name).text();
+
+      $(cname).click(function () {
+
+        document.getElementById("done").value = $(name).text();
+        document.getElementById("deel").submit();
+
+      });
+
+
+    }
+
+  });
+
+
+</script>
+
+</html>

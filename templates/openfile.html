@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <title>File</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    * {
+        background-color: rgb(53, 53, 53);
+    }
+
+    .main {
+        width: 100%;
+        background-color: rgb(53, 53, 53);
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .button-74 {
+        background-color: #fbeee0;
+        border: 2px solid #422800;
+        border-radius: 30px;
+        box-shadow: #422800 4px 4px 0 0;
+        color: #422800;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 0 18px;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+
+        margin-left: 1320px;
+        margin-top: 820px;
+    }
+
+    .button-74:hover {
+        background-color: #fff;
+    }
+
+    .button-74:active {
+        box-shadow: #422800 2px 2px 0 0;
+        transform: translate(2px, 2px);
+    }
+
+    @media (min-width: 768px) {
+        .button-74 {
+            min-width: 120px;
+            padding: 0 25px;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="logo" style="margin-left: 30px;">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'img\logo.png' %}">
+        </a>
+    </div>
+
+    <div class="main">
+
+        <div class="page" style="overflow: hidden;width: 100%;">
+
+            <form method="post" action="{% url 'openfile' %}">
+                {% csrf_token %}
+
+                <p name="oldname"
+                    style="position: absolute;margin-left: 780px;font-family:Georgia, 'Times New Roman', Times, serif, sans-serif;font-size: 60px;background-color: rgba(255, 255, 255, 0);margin-top: 70px;">
+                    {{filename}}</p>
+
+                <!-- hiden input -->
+                <input style="visibility: hidden;position: fixed;" name="status" id="gd" value="1">
+                <input style="visibility: hidden;position: fixed;" name="oldname" value={{filename}}>
+
+                <textarea name="data"
+                    style="position: absolute;margin-left: 390px;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 25px;background-color: rgba(255, 255, 255, 0);margin-top: 210px;width: 1060px;overflow-y: scroll;height: 580px;border: 0px solid black;padding: 10px;">{{content}}</textarea>
+
+                <button class="button-74" id="update" type="submit" style="position: absolute;">Save</button>
+
+            </form>
+
+
+
+            <img src="{% static 'img\backnote.png' %}" style="display: block;
+            margin-left: auto;width: 104pc;
+            margin-right: auto;">
+
+
+        </div>
+    </div>
+
+
+</body>
+<script>
+    $("#update").click(function () {
+
+        alert($("#gd").val());
+    });
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="endline"></div>
+
+        
+<div class="feedbackblock">
+
+    <button class="rearward"><img src="img/next.png"></button>
+    <button class="forward"><img src="img/next.png"></button>
+
+    <div class="feedback1">
+        <p class="userfeedback1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ut deleniti a cum quo maiores optio at asperiores eaque officia ipsa fugiat earum, alias voluptatibus officiis libero quia corporis tempore.</p>
+        <div class="userdp1">
+            <p class="username1">Vikash Bhai</p>
+            <img src="img/boy.png">
+        </div>
+    </div>
+
+    <div  class="feedback2">
+        <p class="userfeedback2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ut deleniti a cum quo maiores optio at asperiores eaque officia ipsa fugiat earum, alias voluptatibus officiis libero quia corporis tempore.</p>
+        <div class="userdp2">
+            <img src="img/girl.png">
+            <p class="username2">Raju Japan</p>
+        </div>
+
+    </div>
+
+
+</div> -->

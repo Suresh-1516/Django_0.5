@@ -1,0 +1,765 @@
+body {
+
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(90deg, rgb(190, 190, 190), rgb(202, 202, 202));
+}
+
+header {
+
+    width: 100%;
+}
+
+nav {
+
+    width: 100%;
+    background-image: linear-gradient(90deg, rgb(0, 0, 0), rgb(29, 28, 28));
+    overflow: auto;
+
+}
+
+ul {
+    padding: 0;
+    margin: 0 0 0 150px;
+    list-style: none;
+}
+
+li {
+
+    float: left;
+
+}
+
+.logo img {
+
+    width: 130px;
+    position: absolute;
+    margin-top: 8px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+
+nav ul a {
+
+    width: 200px;
+    display: block;
+    padding: 30px 0px;
+    text-decoration: none;
+    font-family: Arial;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-weight: bolder;
+    font-size: x-large;
+    cursor: pointer;
+    border-width: 0px 0px 5px 0px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+
+
+}
+
+nav ul a:hover {
+    border-width: 0px 0px 5px 0px;
+    border-style: solid;
+    border-color: rgb(18, 133, 39);
+    background: rgb(255, 255, 255);
+    transition: 0.5s;
+    color: black;
+}
+
+.searchandlogin {
+
+    float: right;
+
+}
+
+.searchandlogin a {
+
+    text-decoration: none;
+    color: aliceblue;
+
+}
+
+
+#google_element {
+
+    color: #e0dede;
+    position: relative;
+    margin-top: 42px;
+    margin-left: 1370px;
+    cursor: pointer;
+}
+
+#google_element:hover {
+    color: #00aced;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+#google_element select {
+
+    padding: 5px 0px;
+    margin-top: -50px;
+
+}
+
+.icongt {
+
+    background-color: rgba(201, 202, 214, 0.0);
+    border: 0px;
+    float: right;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.icongt img {
+    width: 45px;
+}
+
+.icongt img:hover {
+    width: 50px;
+    transition: 0.3s;
+}
+
+/*********************************/
+
+#login {
+    margin-left: 50px;
+    margin-right: 60px;
+    margin-top: 23px;
+    padding: 12px 30px;
+    background-color: rgb(18, 133, 39);
+    border: none;
+    float: right;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-weight: bolder;
+    font-size: large;
+    border: 2px solid;
+    border-color: rgb(255, 255, 255);
+    color: aliceblue;
+    float: right;
+    text-decoration: none;
+
+}
+
+
+#login:hover {
+
+    background-color: rgb(70, 185, 89);
+    color: rgb(255, 255, 255);
+    border: 2px solid;
+    text-decoration: none;
+    border-color: rgb(0, 0, 0);
+
+}
+
+
+/************************************/
+
+
+#google_element {
+
+    color: #e0dede;
+    position: relative;
+    margin-top: 42px;
+    margin-left: 1370px;
+    cursor: pointer;
+}
+
+#google_element:hover {
+    color: #00aced;
+}
+
+.goog-logo-link {
+    display: none !important;
+}
+
+.goog-te-gadget {
+    color: transparent !important;
+}
+
+#google_element select {
+
+    padding: 5px 0px;
+    margin-top: -50px;
+
+}
+
+.icongt {
+
+    background-color: rgba(201, 202, 214, 0.0);
+    border: 0px;
+    float: right;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.icongt img {
+    width: 45px;
+}
+
+.icongt img:hover {
+    width: 50px;
+    transition: 0.3s;
+}
+
+
+/*****************************/
+
+
+
+.languagesslide {
+
+    width: 100%px;
+    height: 40px;
+    color: rgb(196, 189, 189);
+    padding: 15px 0px;
+    background-color: #1f1e1e;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    ;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.languagesslide a {
+
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    margin-left: 200px;
+    padding: 10px 10px;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+
+
+.languagesslide a:hover {
+
+    color: rgb(227, 231, 16);
+}
+
+
+
+.exercisesslide {
+
+    width: 100%px;
+    height: 40px;
+    color: rgb(196, 189, 189);
+    padding: 15px 0px;
+    background-color: #1f1e1e;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    ;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.exercisesslide a {
+
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    margin-left: 180px;
+    padding: 10px 0px;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+
+
+.exercisesslide a:hover {
+
+    color: rgb(16, 231, 16);
+}
+
+
+
+
+.premiumsslide {
+
+    width: 100%px;
+    height: 40px;
+    color: rgb(196, 189, 189);
+    padding: 15px 0px;
+    background-color: #1f1e1e;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.premiumsslide a {
+
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    margin-left: 165px;
+    padding: 10px 0px;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+
+
+.premiumsslide a:hover {
+
+    color: rgb(227, 231, 16);
+}
+
+
+
+.mycodeslide {
+
+    width: 100%px;
+    height: 40px;
+    color: rgb(196, 189, 189);
+    padding: 15px 0px;
+    background-color: #1f1e1e;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    ;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.mycodeslide a {
+
+    color: rgb(255, 255, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 22px;
+    margin-left: 190px;
+    padding: 10px 0px;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+
+
+.mycodeslide a:hover {
+
+    color: rgb(16, 231, 16);
+}
+
+
+/*********************************/
+
+.htmlnavbar {
+
+    width: 235px;
+    background-color: #D8D5D1;
+    height: 100%;
+    overflow-y: scroll;
+    position: fixed;
+}
+
+.htmlnavbar h3 {
+
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 0px 0px 5px 25px;
+    color: #3688BA;
+    text-shadow: 0 0 2px rgb(255, 255, 255);
+    font-family: 'Righteous', cursive;
+}
+
+#htmlmenu {
+    width: 200px;
+    margin: 0px;
+    border-style: solid solid none solid;
+    border-color: #D8D5D1;
+    border-width: 1px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    font-weight: bold;
+}
+
+#htmlmenu ul {
+    list-style: none;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 1160px 0px;
+}
+
+#htmlmenu img {
+    border: none;
+}
+
+
+#htmlmenu li a {
+    height: 32px;
+    height: 24px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+#htmlmenu li a {
+    color: #000000;
+    display: block;
+    background: url(/img/menu.gif);
+    width: 180px;
+    padding: 8px 0px 0 30px;
+}
+
+#htmlmenu li a:hover {
+    color: #3688BA;
+    background: url(/img/menu.gif) 0 -32px;
+    padding: 8px 0 0 32px;
+    cursor: pointer;
+}
+
+
+
+/*************************/
+
+
+
+.content {
+
+    width: 88%;
+    height: 100%;
+    background-color: #f3f3f3;
+    position: fixed;
+    margin-left: 230px;
+    margin-right: 100px;
+    overflow-y: scroll;
+}
+
+.content h5 {
+
+    margin-top: 30px;
+    text-align: center;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #000000;
+}
+
+.content hr {
+
+    width: 1600px;
+    height: 1px;
+    color: rgba(224, 224, 224, 0.5);
+    background-color: #aaa8a8;
+    margin-top: -25px;
+}
+
+.previouspage {
+
+    background-color: #e2e2e2;
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.previouspage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+
+.nextpage {
+
+    background-color: rgb(226, 226, 226);
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 41px;
+    margin-top: 10px;
+}
+
+.nextpage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+
+.content h3 {
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 27px;
+    font-size: 40px;
+    margin-top: 50px;
+
+}
+
+.content h3:hover {
+
+    text-decoration: underline;
+}
+
+.content p {
+
+    font-size: 20px;
+}
+
+.content p {
+
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 28px;
+    margin-right: 80px;
+    letter-spacing: 1px;
+    color: #131313;
+    line-height: 45px;
+}
+
+.examples {
+
+    width: 1375px;
+    background-color: rgba(232, 232, 232, 0.7);
+    margin-left: 30px;
+    margin-top: 50px;
+    font-size: 25px;
+    padding: 30px 40px 30px 100px;
+    font-family: 'Inconsolata', monospace;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    line-height: 40px;
+
+}
+
+.fpreviouspage {
+
+    background-color: rgb(226, 226, 226);
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.fpreviouspage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+.fnextpage {
+
+    background-color: #e2e2e2;
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 41px;
+    margin-top: 10px;
+}
+
+.fnextpage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+.loginpagecopyrighttext {
+
+    padding-top: 10px;
+    margin-top: -70px;
+    position: relative;
+    left: 480px;
+    width: 700px;
+    text-align: center;
+}
+
+
+
+
+/********************************/
+
+
+
+
+
+.content1 {
+
+    width: 88%;
+    height: 100%;
+    background-color: #f3f3f3;
+    position: fixed;
+    margin-left: 230px;
+    margin-right: 100px;
+    overflow-y: scroll;
+}
+
+.content1 h5 {
+
+    margin-top: 30px;
+    text-align: center;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #000000;
+}
+
+.content1 hr {
+
+    width: 1600px;
+    height: 1px;
+    color: rgba(224, 224, 224, 0.5);
+    background-color: #aaa8a8;
+    margin-top: -25px;
+}
+
+.previouspage {
+
+    background-color: #e2e2e2;
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.previouspage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+
+.nextpage {
+
+    background-color: rgb(226, 226, 226);
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 41px;
+    margin-top: 10px;
+}
+
+.nextpage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+
+.content1 h3 {
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 27px;
+    font-size: 40px;
+    margin-top: 50px;
+
+}
+
+.content1 h3:hover {
+
+    text-decoration: underline;
+}
+
+.content1 p {
+
+    font-size: 20px;
+}
+
+.content1 p {
+
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 28px;
+    margin-right: 80px;
+    letter-spacing: 1px;
+    color: #131313;
+    line-height: 45px;
+}
+
+.examples {
+
+    width: 1375px;
+    background-color: rgba(232, 232, 232, 0.7);
+    margin-left: 30px;
+    margin-top: 50px;
+    font-size: 25px;
+    padding: 30px 40px 30px 100px;
+    font-family: 'Inconsolata', monospace;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    line-height: 40px;
+
+}
+
+.fpreviouspage {
+
+    background-color: rgb(226, 226, 226);
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 40px;
+    margin-top: 10px;
+}
+
+.fpreviouspage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+.fnextpage {
+
+    background-color: #e2e2e2;
+    border: 0px solid black;
+    padding: 10px 10px 10px 10px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 41px;
+    margin-top: 10px;
+}
+
+.fnextpage:hover {
+
+    background-color: rgb(241, 239, 239);
+
+}
+
+.loginpagecopyrighttext {
+
+    padding-top: 10px;
+    margin-top: -70px;
+    position: relative;
+    left: 480px;
+    width: 700px;
+    text-align: center;
+}
+
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+  }

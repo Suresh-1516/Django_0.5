@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+    <title> Log in</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+
+
+    <div class="logo">
+        <a href="{% url 'home' %}">
+        <img src="{% static 'img\logo.png' %}"></a>
+    </div>
+
+    <div class="loginback">
+        <div class="loginblock" id="id01">
+            <input type="checkbox" id="chk" aria-hidden="true">
+            <div class="signup">
+                <form method="post">
+                    {% csrf_token %}
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <input type="text" name="user" placeholder=" Username" required="">
+                    <input type="password" name="pswd" placeholder=" Password" required="">
+                    <button>Login</button><br>
+                    <a class="fp" href="{% url 'forgot_password' %}">forgot password ?</a><br>
+                    <a href="{% url 'signin' %}" class="signin"> Create new Account </a>
+                </form>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h3
+                style="color: rgb(255, 0, 0);font-weight: 100;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;letter-spacing: 2PX;text-align: center;">
+                {{msg}}</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="loginpagecopyrighttext">
+            <p>Copyright &copy; 2022 All Rights Reserved by
+                <a>Balaji Pvt. Ltd.</a>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+<style>
+    .fp {
+        color: rgb(137, 168, 157);
+        margin-left: 115px;
+    }
+
+    .fp:hover {
+        color: rgb(215, 222, 228);
+        cursor: pointer;
+    }
+
+    .signin {
+        background-color: rgba(0, 0, 0, 0.3);
+        border: none;
+        color: rgb(255, 255, 255);
+        padding: 8px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 15px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        margin-top: 40px;
+        margin-left: 85px;
+        position: absolute;
+    }
+
+    .signin:hover{
+        background-color: rgba(102, 102, 102, 0.3);
+    }
+    
+</style>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="endline"></div>
+
+        
+<div class="feedbackblock">
+
+    <button class="rearward"><img src="img/next.png"></button>
+    <button class="forward"><img src="img/next.png"></button>
+
+    <div class="feedback1">
+        <p class="userfeedback1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ut deleniti a cum quo maiores optio at asperiores eaque officia ipsa fugiat earum, alias voluptatibus officiis libero quia corporis tempore.</p>
+        <div class="userdp1">
+            <p class="username1">Vikash Bhai</p>
+            <img src="img/boy.png">
+        </div>
+    </div>
+
+    <div  class="feedback2">
+        <p class="userfeedback2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ut deleniti a cum quo maiores optio at asperiores eaque officia ipsa fugiat earum, alias voluptatibus officiis libero quia corporis tempore.</p>
+        <div class="userdp2">
+            <img src="img/girl.png">
+            <p class="username2">Raju Japan</p>
+        </div>
+
+    </div>
+
+
+</div> -->

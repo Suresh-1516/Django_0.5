@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>Programming Language.com</title>
+    <link rel="icon" href="{% static 'img\logo.png'%}">
+    <link rel="stylesheet" href="{% static 'css/premium.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{% static 'js/premium.js'%}"></script>
+
+</head>
+<style>
+    .price {
+        position: absolute;
+        margin-top: -270px;
+        margin-left: 200px;
+    }
+
+    .razorpay-payment-button {
+        visibility: hidden;
+    }
+
+    #amount {
+        color: rgb(49, 52, 224);
+        margin-left: 285px;
+        margin-top: 157px;
+        font-size: 50px;
+        position: absolute;
+        font-weight: bold;
+        text-shadow: 0 0 10px rgb(255, 255, 255);
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+</style>
+
+
+<body>
+    <div class="logo" style="position: fixed;">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'img\logo.png'%}" style="width: 120px;margin-top: 20px;margin-left: 20px;"></a>
+    </div>
+
+    <div style="margin-left: 120px;">
+        <img src="{% static 'img/star.png'%}" id="star">
+        <p
+            style="color: rgb(247, 247, 247);position: absolute;font-family: Arial, Helvetica, sans-serif;font-weight: bold;margin-left: 1180px;font-size: 30px;margin-top: 148px;">
+            {{name}}</p>
+        <form action="/payment/{{done}} " method="post">
+
+            {% csrf_token %}
+
+            <input readonly style="visibility: hidden;position: fixed;" name="username" value="{{user.username}}">
+            <p class="data" style="margin-left: 100px;">
+                <label>Name :</label><br>
+                <input type="text" required name="firstname"><br><br><br>
+
+                <label>Mobile Number :</label><br>
+                <input type="tel" maxlength="10" minlength="10" name="lastname" required><br><br><br>
+
+                <label for="email"> E-mail Id :</label><br>
+                <input type="email" id="email" required name="email"><br>
+            </p>
+
+            <div class="first" style="cursor: pointer;">
+                <button type="submit" id="rzp-button1" style="margin-top: 650px;margin-left: 1145px;">
+                    Subscribe</button>
+            </div>
+
+            <!-- RAZORPAY INTEGRATION HERE -->
+            <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_GW0H7pJwQSuws9"
+                data-amount="{{amount}}00" data-currency="INR" data-order_id="{{Id}}" data-name="{{name}}"
+                data-description="Django and Data Science"
+                data-image="https://drive.google.com/file/d/1yB7YMmYnunbjxCjutLXpZ2ccVfpodPtn/view?usp=sharing"
+                data-prefill.name="PC" data-prefill.email="pc@studygyaan.com" data-theme.color="#F37254">
+
+                </script>
+
+        </form>
+    </div>
+
+
+    <div class="content">
+
+        <div class="points">
+
+            <p
+                style="font-family:cursive;letter-spacing: 1px;word-spacing: 2px;font-weight: bolder;position: fixed;top:150px;font-size: 24px;left: 310px;color: rgb(233, 126, 4);">
+                WHAT YOU WILL LEARN IN JAVA ADVANCE
+            </p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>Basics of a Web
+                application</p>
+
+            <p><i class="fa fa-paper-plane" style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>
+                Web Container and Web Application Project Set up</p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>Servlets</p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>Session Management</p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>JSPs</p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>JSP Elements</p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>JSP Tag library</p>
+
+            <p><i class="fa fa-paper-plane"
+                    style="padding-right: 30px;color: rgb(96, 202, 128);font-size: 25px;"></i>With Projects</p>
+        </div>
+        <div class="price">
+            <label id="amount"> {{amount}}₹</label>
+            <img src="{% static 'img/tag.png'%}">
+        </div>
+    </div>
+
+</body>
+
+
+</html>

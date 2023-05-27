@@ -1,0 +1,325 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+  <title>HTML Exercises</title>
+  <link rel="icon" href="{% static 'img\logo.png'%}">
+  <link rel="stylesheet" href="{% static 'css/htmlex.css'%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="{% static 'js/htmlex.js'%}"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div class="home">
+
+
+    <header class="header">
+      <div class="logo">
+        <a href="{% url 'home' %}">
+          <img src="{% static 'img\logo.png'%}"></a>
+      </div>
+      <nav>
+        <ul>
+          <li id="languagebtn"><a>Languages</a></li>
+          <li id="exercisesbtn"><a>Exercises</a></li>
+          <li id="questionsbtn"><a>Premiums</a></li>
+          <li id="mycodebtn"><a>My Code</a></li>
+        </ul>
+
+        <div class="searchandlogin">
+          <!-- <button class="loginbtn" id="login"><a href="{% url 'logout' %}">Log out</a> </button> -->
+          <img src="{% static 'img/user.png' %}"
+              style="width: 30px;position: absolute;margin-left: 65px;margin-top: 31px;">
+          <button class="loginbtn" id="login">
+              {% if user.is_authenticated %}
+              <a style="position: relative;padding-left: 20px;margin-right: -10px;"
+                  href="{% url 'home' %}" id="btnuser">{{user.username}} </a>
+              {% else %}
+              <a href="{% url 'login' %}" style="position: relative;padding-left: 20px;" id="btnlogin">Log in
+              </a>
+              {% endif %}
+              <!-- <img src="{% static 'img/boy.png'%}"> --></button>
+          <!-- <label id="user_name">Eerhs Mar</label></button> -->
+      </div>
+        <button class="icongt"><img src="{% static 'img/icongt.png'%}"></button>
+        <div id="google_element">
+        </div>
+      </nav>
+
+    </header>
+
+
+    <div class="slides">
+      <div class="languagesslide" id="lslide">
+          <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>HTML</a>
+          <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>JAVA</a>
+          <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>PYTHON</a>
+          <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>C++</a>
+          <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>PHP</a>
+      </div>
+
+      <div class="exercisesslide">
+          <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>Html </a>
+          <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>Java </a>
+          <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>Python </a>
+          <a href="/htmlex/{{1}}"style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>C++ </a>
+          <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                  style="font-size: 20px;padding-right: 20px;"></i>Php </a>
+      </div>
+
+      <div class="premiumsslide">
+        <a href="/premium/java" style="text-decoration: none;"><i class="fa fa-trophy"
+                style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Java</a>
+        <a href="/premium/cpp" style="text-decoration: none;"><i class="fa fa-trophy"
+                style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced C++</a>
+        <a href="/premium/python" style="text-decoration: none;"><i class="fa fa-trophy"
+                style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Python</a>
+        <a href="/premium/php" style="text-decoration: none;"><i class="fa fa-trophy"
+                style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Php</a>
+    </div>
+
+      <div class="mycodeslide">
+          <a href="{% url 'savecode' %}" style="text-decoration: none;"><i class="fa fa-save"
+                  style="font-size: 25px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Save
+              Code</a>
+          <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-assistive-listening-systems"
+                  style="font-size: 28px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Doubt </a>
+          <a href="{% url 'htmlquestions' %}" style="text-decoration: none;"><i class="fa fa-question-circle-o"
+                  style="font-size: 28px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Questions</a>
+      </div>
+  </div>
+
+
+    <div class="menu">
+      <div class="dropdownbtn1">HTML Attributes</div>
+      <div class="submenu1">
+        <div class="ex1"><a href="/htmlex/{{1}}"> Exercise : 1 </a></div>
+        <div class="ex2"><a href="/htmlex/{{2}}"> Exercise : 2 </a></div>
+        <div class="ex3"><a href="/htmlex/{{3}}"> Exercise : 3 </a></div>
+      </div>
+
+      <div class="dropdownbtn2">HTML Headings</div>
+      <div class="submenu2">
+        <div class="ex4"><a href="/htmlex/{{4}}"> Exercise : 1 </a></div>
+        <div class="ex5"><a href="/htmlex/{{5}}"> Exercise : 2 </a></div>
+        <div class="ex6"><a href="/htmlex/{{6}}"> Exercise : 3 </a></div>
+        <div class="ex7"><a href="/htmlex/{{7}}"> Exercise : 4 </a></div>
+      </div>
+
+      <div class="dropdownbtn3">HTML Paragraphs</div>
+      <div class="submenu3">
+        <div class="ex8"><a href="/htmlex/{{8}}"> Exercise : 1 </a></div>
+        <div class="ex9"><a href="/htmlex/{{9}}"> Exercise : 2 </a></div>
+      </div>
+
+      <div class="dropdownbtn4">HTML Styles</div>
+      <div class="submenu4">
+        <div class="ex10"><a href="/htmlex/{{10}}"> Exercise : 1 </a></div>
+        <div class="ex11"><a href="/htmlex/{{11}}"> Exercise : 2 </a></div>
+        <div class="ex12"><a href="/htmlex/{{12}}"> Exercise : 3 </a></div>
+      </div>
+
+
+      <div class="dropdownbtn5">HTML Quotation</div>
+      <div class="submenu5">
+        <div class="ex13"><a href="/htmlex/{{13}}"> Exercise : 1 </a></div>
+        <div class="ex14"><a href="/htmlex/{{14}}"> Exercise : 2 </a></div>
+        <div class="ex15"><a href="/htmlex/{{15}}"> Exercise : 3 </a></div>
+        <div class="ex16"><a href="/htmlex/{{16}}"> Exercise : 4 </a></div>
+      </div>
+
+      <div class="dropdownbtn12">HTML Comments</div>
+      <div class="submenu12">
+        <div class="ex17"><a href="/htmlex/{{17}}"> Exercise : 1 </a></div>
+        <div class="ex18"><a href="/htmlex/{{18}}"> Exercise : 2 </a></div>
+        <div class="ex19"><a href="/htmlex/{{19}}"> Exercise : 3 </a></div>
+      </div>
+
+      <div class="dropdownbtn6">HTML CSS</div>
+      <div class="submenu6">
+        <div class="ex20"><a href="/htmlex/{{20}}"> Exercise : 1 </a></div>
+        <div class="ex21"><a href="/htmlex/{{21}}"> Exercise : 2 </a></div>
+      </div>
+
+
+      <div class="dropdownbtn7">HTML Link</div>
+      <div class="submenu7">
+        <div class="ex22"><a href="/htmlex/{{22}}"> Exercise : 1 </a></div>
+        <div class="ex23"><a href="/htmlex/{{23}}"> Exercise : 2 </a></div>
+        <div class="ex24"><a href="/htmlex/{{24}}"> Exercise : 3 </a></div>
+      </div>
+
+      <div class="dropdownbtn8">HTML Images</div>
+      <div class="submenu8">
+        <div class="ex25"><a href="/htmlex/{{25}}"> Exercise : 1 </a></div>
+        <div class="ex26"><a href="/htmlex/{{26}}"> Exercise : 2 </a></div>
+        <div class="ex27"><a href="/htmlex/{{27}}"> Exercise : 3 </a></div>
+      </div>
+
+
+      <div class="dropdownbtn9">HTML Tables</div>
+      <div class="submenu9">
+        <div class="ex28"><a href="/htmlex/{{28}}"> Exercise : 1 </a></div>
+        <div class="ex29"><a href="/htmlex/{{29}}"> Exercise : 2 </a></div>
+        <div class="ex30"><a href="/htmlex/{{30}}"> Exercise : 3 </a></div>
+      </div>
+
+      <div class="dropdownbtn10">HTML Lists</div>
+      <div class="submenu10">
+        <div class="ex31"><a href="/htmlex/{{31}}"> Exercise : 1 </a></div>
+        <div class="ex32"><a href="/htmlex/{{32}}"> Exercise : 2 </a></div>
+        <div class="ex33"><a href="/htmlex/{{33}}"> Exercise : 3 </a></div>
+      </div>
+
+      <div class="dropdownbtn11">HTML Classes</div>
+      <div class="submenu11">
+        <div class="ex34"><a href="/htmlex/{{34}}"> Exercise : 1 </a></div>
+        <div class="ex35"><a href="/htmlex/{{35}}"> Exercise : 2 </a></div>
+      </div>
+
+      <div class="dropdownbtn13">HTML Iframes</div>
+      <div class="submenu13">
+        <div class="ex40"><a href="/htmlex/{{36}}"> Exercise : 1 </a></div>
+        <div class="ex41"><a href="/htmlex/{{37}}"> Exercise : 2 </a></div>
+      </div>
+
+      <div class="dropdownbtn14">HTML Scripts</div>
+      <div class="submenu14">
+        <div class="ex42"><a href="/htmlex/{{38}}"> Exercise : 1 </a></div>
+        <div class="ex43"><a href="/htmlex/{{39}}"> Exercise : 2 </a></div>
+        <div class="ex44"><a href="/htmlex/{{40}}"> Exercise : 3 </a></div>
+      </div>
+      <div class="dropdownbtn15">HTML Forms</div>
+      <div class="submenu15">
+        <div class="ex45"><a href="/htmlex/{{41}}"> Exercise : 1 </a></div>
+        <div class="ex46"><a href="/htmlex/{{42}}"> Exercise : 2 </a></div>
+        <div class="ex47"><a href="/htmlex/{{43}}"> Exercise : 3 </a></div>
+        <div class="ex48"><a href="/htmlex/{{44}}"> Exercise : 4 </a></div>
+        <div class="ex49"><a href="/htmlex/{{45}}"> Exercise : 5 </a></div>
+        <div class="ex50"><a href="/htmlex/{{46}}"> Exercise : 6 </a></div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <div class="container">
+
+      <h1 id="exname">Exercise: {{ex}}</h1>
+      <p id="quation">{{question}}</p>
+      <div class="exnote">
+        {{start_q}}  <input type="text" id="a" maxlength="20"  required style="letter-spacing: 1px;">{{end_q}}
+      </div>
+      <a id="ans" style="visibility: hidden;">{{ans}}</a>
+      <a id="s"></a>
+
+      <p class="msg"
+        style="font-family: Verdana, Geneva, Tahoma, sans-serif;margin-left: 150px;margin-top: -100px;position: absolute;color: rgb(0, 81, 255);">
+        Right Answer</p>
+      <button class="subans">Submit Answer</button>
+      <button class="showans">Show Answer</button>
+    </div>
+    
+</body>
+<script>
+  $(document).ready(function () {
+
+    $("#s").hide();
+    let len =13 * $("#ans").text().length;
+    let w = len+"px";
+    $("#a").css("width",w);
+    
+
+    $('.showans').click(function () {
+
+      if ($('#s').is(':hidden')) {
+        $(".showans").text(" Hide Answer");
+        $("#s").show();
+        $("#a").val("");
+        let done = $("#ans").text();
+        $("#a").val(done);
+        $("#a").prop('disabled', true);
+        $("#a").css("color","rgb(0, 23, 233)");
+        $("#a").css("font-weight", "bold");
+        $("#a").css("font-family","monospace");
+        $("#a").css("font-size","20px");
+        $(".subans").hide();
+
+
+      }
+      else {
+        $("#a").prop('disabled', false);
+        $(".showans").text("Show Answer");
+        $("#s").hide();
+        $(".subans").show();
+        $("#a").val("");
+      }
+    });
+
+  });
+
+  $(document).ready(function () {
+
+
+
+    $(".msg").hide();
+
+    $('.subans').click(function () {
+
+
+      let ans = $("#a").val();
+      let enter = $("#ans").text();
+
+      if (ans == "" || ans == null) {
+        $("#a").css("border", "2px solid red");
+        alert("NOTE : Please fill the answer in the textbox ");
+      }
+      else if (ans == enter) {
+        $(".exnote").css("background-color", "#c8ebc8");
+        $(".msg").text("Right Answer");
+        $(".msg").show();
+
+      }
+      else {
+        $(".exnote").css("background-color", "#f0bbbb");
+        $(".msg").text("Wrong Answer");
+        $(".msg").show();
+      }
+
+    });
+
+  });
+
+ 
+
+
+</script>
+
+</html>

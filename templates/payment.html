@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pyament</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/payment.css'%}">
+
+</head>
+<style>
+    .center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+
+<body>
+
+    <div class="logo" style="position: fixed;">
+        <a href="/">
+            <img src="{% static 'img\logo.png'%}"
+                style="width: 150px;margin-top: 20px;margin-left: 20px;cursor: pointer;"></a>
+    </div>
+
+
+    <img id="i" src="/static/img/payment.gif" style="position: fixed;border-radius: 200px;margin-left: 710px;width: 450px;margin-top: -40px;">
+
+    <div class="container" id="a">
+
+        <form action="/" style="margin-top: 180px;">
+            <h1 style="text-align: center;font-size: 50px;">Payment Successful</h1><br>
+            <div style="text-align: center;font-size: 25px;line-height: 55px;">
+                
+                <p>Name : <h>{{name}}</h></p>
+                <p>Enrolled Course: <h>{{course}}</h></p>
+                <p>Mobile No : <h>{{num}}</h></p>
+                <p>Email : <h>{{email}}</h></p>
+                <p>Order id : <h>{{ordernum}}</h></p>
+                <p>Amount : <h>{{amount}}</h></p><br>
+            </div>
+
+            <input type="submit" value="Go To Home Page" class="submit-btn">
+
+        </form>
+    </div>
+
+
+</body>
+
+</html>

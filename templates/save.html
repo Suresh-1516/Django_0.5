@@ -1,0 +1,171 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<head>
+  <title>Your Code</title>
+  <link rel="icon" href="{% static 'img/logo.png' %}">
+  <link rel="stylesheet" href="{% static 'css/savecode.css'%}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="{% static 'js/savecode.js'%}"></script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</head>
+
+
+
+<body>
+  <div class="all">
+    <h1
+      style="font-size: 60px ;font-family: 'Righteous', cursive;color: rgb(71, 206, 206);position: absolute;margin-left: 800px;letter-spacing: 5px;">
+      Your Files</h1>
+    <a href="{% url 'home' %}">
+      <img src="{% static 'img\logo.png' %}" class="logo"></a>
+
+    <div class="container_bar">
+
+      <div id="user">
+        <img src="{% static 'img/boy.png'%}">
+        {% if user.is_authenticated %}
+        <label id="user_name">{{user.username}}</label>
+        {% endif %}
+      </div>
+      <div
+        style="width: 4px;height: 130px;background-color: rgb(155, 155, 155);margin-left: 1100px;position: absolute;margin-top: 10px;border-radius: 50px;">
+      </div>
+
+
+      <label class="count_file">{{len}} / <a>Files</a></label>
+
+
+    </div>
+
+    <!-- <div class="renamehover">
+      <label>rename</label>
+    </div>
+
+    <div class="deletehover">
+      <label>delete</label>
+    </div> -->
+
+    <div class="files_box">
+
+      <form role="search"
+        style="margin: 0;border: 2px solid black;position: inherit;margin-left: 60px;position: relative;">
+        <input id="search" type="search" placeholder="Search..." autofocus required />
+        <button type="" class="btnsearch"><a class="fa fa-search"></a></button>
+      </form>
+
+      <div style="margin-top: -50px;position: inherit;padding-bottom: 50px;">
+        <button class="button-54" role="button" style="font-size: 20px;padding: 10px 10px;margin-left:1240px;"><a
+            style="text-decoration: none;color: black;" href="{% url 'filesave' %}">Add File</a>
+          <a class="fa fa-file"></a></button>
+
+      </div>
+
+      <div>
+        <div id="files" style="display: flex;width: 1100px;margin-left: 170px;">
+
+          <p style="margin-top: -0px;margin-left: 85px;">File <a>{{forloop.counter}}</a>:</p>
+          <p style="margin-top: -0px;margin-right:200px;margin-left: 230px;" class="filename">{{j}}</p>
+          <p style="margin-top: -0px;" class="renameicon"><i class='fa fa-edit' id="" style='font-size:36px'></i></p>
+          <p style="margin-top: -0px;" class="deleteicon"><i class='fa fa-trash' id="" style='font-size:36px'></i></p>
+
+        </div>
+
+      </div>
+
+      <div>
+        <div id="files" style="display: flex;width: 1100px;margin-left: 170px;">
+
+          <p style="margin-top: -0px;margin-left: 85px;">File <a>{{forloop.counter}}</a>:</p>
+          <p style="margin-top: -0px;margin-right:200px;margin-left: 230px;" class="filename">{{j}}</p>
+          <p style="margin-top: -0px;" class="renameicon"><i class='fa fa-edit' id="" style='font-size:36px'></i></p>
+          <p style="margin-top: -0px;" class="deleteicon"><i class='fa fa-trash' id="" style='font-size:36px'></i></p>
+
+        </div>
+
+      </div>
+      <div>
+        <div id="files" style="display: flex;width: 1100px;margin-left: 170px;">
+
+          <p style="margin-top: -0px;margin-left: 85px;">File <a>{{forloop.counter}}</a>:</p>
+          <p style="margin-top: -0px;margin-right:200px;margin-left: 230px;" class="filename">{{j}}</p>
+          <p style="margin-top: -0px;" class="renameicon"><i class='fa fa-edit' id="" style='font-size:36px'></i></p>
+          <p style="margin-top: -0px;" class="deleteicon"><i class='fa fa-trash' id="" style='font-size:36px'></i></p>
+
+        </div>
+
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+  <form action="{% url 'filesave' %}" method="post">
+    {% csrf_token %}
+    <div class="new_file">
+
+      <h1>Save Your Code Hear </h1>
+
+      <hr><br><br>
+      <div class="centered">
+        <p style="float: right;padding: 0;margin-top: 100px;margin-left: 120px;font-size: 25px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: bold;color: crimson;position: absolute;"
+          class="msg">{{msg}}</p>
+        <a href="{% url 'savecode' %}" class="close"><i class="fa fa-close" id="cbtn"
+            style="font-size:36px;position: absolute;width: 30px;color: rgb(185, 192, 192);margin-top: -80px;margin-left: 900px;"></i></a>
+        <div class="group">
+          <input id="name" type="text" required="required" maxlength="15" name="filename" />
+          <label for="name" id="fname">File Name</label>
+          <div class="bar"></div>
+        </div>
+      </div>
+
+      <div class="txtarea">
+        <textarea
+          style=" padding: 30px 30px; border: 1px solid #ccc; font-size: 14px; border-radius: 4px;position: absolute;font-size: 30px;font-family: 'Courier New', Courier, monospace;font-weight: bolder;outline: none;border: 1px solid black;"
+          placeholder="Enter your code  here..." rows="13" cols="69" id="txtbox" name="filecontent"></textarea>
+      </div>
+
+      <div class="file_add">
+
+        <button class="button button2" type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+
+
+</body>
+<script>
+
+
+  $(document).ready(function () {
+
+    for (let i = 0; i < 5; i++) {
+      $('.msg').fadeOut(500);
+      $('.msg').fadeIn(1200);
+    }
+    $('.msg').fadeOut(500);
+  });
+</script>
+
+</html>

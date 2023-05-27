@@ -1,0 +1,303 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>Programming Language.com//html</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/htmlstyle.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{% static 'js/html.js' %}"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'img\logo.png' %}"></a>
+        </div>
+        <nav>
+            <ul>
+                <li id="languagebtn"><a>Languages</a></li>
+                <li id="exercisesbtn"><a>Exercises</a></li>
+                <li id="questionsbtn"><a>Premiums</a></li>
+                <li id="mycodebtn"><a>My Code</a></li>
+            </ul>
+
+            <div class="searchandlogin">
+                <button class="loginbtn" id="login"><a href="###">Log in</a> </button>
+            </div>
+            <button class="icongt"><img src="{% static 'img/icongt.png'%}"></button>
+            <div id="google_element">
+            </div>
+        </nav>
+
+    </header>
+    <div class="slides">
+        <div class="languagesslide" id="lslide">
+            <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>HTML</a>
+            <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>JAVA</a>
+            <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>PYTHON</a>
+            <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>C++</a>
+            <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>PHP</a>
+        </div>
+
+        <div class="exercisesslide">
+            <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>Html </a>
+            <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>Java </a>
+            <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>Python </a>
+            <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>C++ </a>
+            <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                    style="font-size: 20px;padding-right: 20px;"></i>Php </a>
+        </div>
+
+        <div class="premiumsslide">
+            <a href="/premium/java" style="text-decoration: none;"><i class="fa fa-trophy"
+                    style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Java</a>
+            <a href="/premium/cpp" style="text-decoration: none;"><i class="fa fa-trophy"
+                    style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced C++</a>
+            <a href="/premium/python" style="text-decoration: none;"><i class="fa fa-trophy"
+                    style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Python</a>
+            <a href="/premium/php" style="text-decoration: none;"><i class="fa fa-trophy"
+                    style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Php</a>
+        </div>
+
+        <div class="mycodeslide">
+            <a href="{% url 'savecode' %}" style="text-decoration: none;"><i class="fa fa-save"
+                    style="font-size: 25px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Save
+                Code</a>
+            <a href="" style="text-decoration: none;"><i class="fa fa-assistive-listening-systems"
+                    style="font-size: 28px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Doubt </a>
+            <a href="" style="text-decoration: none;"><i class="fa fa-question-circle-o"
+                    style="font-size: 28px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Questions</a>
+        </div>
+    </div>
+
+    <div class="htmlnavbar">
+        <div id="htmlmenu">
+            <h3>Html Tutorial</h3>
+            <ul>
+                <li><a href="/htmlcontent/intro">Introduction</a></li>
+                <li><a href="/htmlcontent/overview">Overview</a></li>
+                <li><a href="/htmlcontent/basictags">Basic Tags</a></li>
+                <li><a>Elements</a></li>
+                <li><a>Formatting</a></li>
+                <li><a>Phrase Tags</a></li>
+                <li><a>Meta Tags</a></li>
+                <li><a>Comments</a></li>
+                <li><a>Images</a></li>
+                <li><a>Tables</a></li>
+                <li><a>Lists</a></li>
+                <li><a>Text Links</a></li>
+                <li><a>Image Links</a></li>
+                <li><a>Email Links</a></li>
+                <li><a>Frames</a></li>
+                <li><a>Iframes</a></li>
+                <li><a>Blocks</a></li>
+                <li><a>Backgrounds</a></li>
+                <li><a>Colors</a></li>
+                <li><a>Fonts</a></li>
+                <li><a>Forms</a></li>
+                <li><a>Embed Multimedia</a></li>
+                <li><a>Marquees</a></li>
+                <li><a>Header</a></li>
+                <li><a>Style Sheet</a></li>
+                <li><a>JavaScript</a></li>
+                <li><a>Layouts</a></li>
+                <li><a style="color: rgb(0, 4, 250);font-weight: bolder;">Questions</a></li>
+                <li><a style="color: rgb(0, 4, 255);font-weight: bolder;">Start Advanced Html</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="content1">
+        <div class="overview_html">
+            <h5>Basic Tags</h5>
+            <hr>
+            <a href="/htmlcontent/overview"><button class="previouspage">&laquo; Previous Page</button></a>
+            <a href="/htmlcontent/intro"><button class="nextpage">Next Page &raquo;</button></a>
+            <hr style="margin-top: 17px;">
+
+            <br>
+            <br>
+            <h3>Heading Tags</h3>
+            <p>Any document starts with a heading. You can use different sizes for your headings. HTML also has six
+                levels of headings, which use the elements <b>&lt;h1&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;h4&gt;,
+                    &lt;h5&gt;,</b> and <b>&lt;h6&gt;</b>. While displaying any heading, browser adds one line before
+                and one line after that heading.</p>
+
+            <!-- 
+            <h3>Basic HTML Document</h3>
+
+            <p>
+                In its simplest form, following is an example of an HTML document −<br><br>
+            </p> -->
+
+            <h3>Example</h3>
+            <br>
+            <pre class="examples" style="color: rgb(52, 52, 181);margin-top: -40px;">
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                &lt;head&gt;
+                &lt;title&gt;Heading Example&lt;/title&gt;
+                &lt;/head&gt;
+
+                &lt;body&gt;
+                &lt;h1&gt;This is heading 1&lt;/h1&gt;
+                &lt;h2&gt;This is heading 2&lt;/h2&gt;
+                &lt;h3&gt;This is heading 3&lt;/h3&gt;
+                &lt;h4&gt;This is heading 4&lt;/h4&gt;
+                &lt;h5&gt;This is heading 5&lt;/h5&gt;
+                &lt;h6&gt;This is heading 6&lt;/h6&gt;
+                &lt;/body&gt;
+
+                &lt;/html&gt;
+            </pre>
+
+            <div class="examples"
+                style="margin-top: 30px;border-radius: 0px;border: 2px  solid black ;border-width: 5px;border-color:rgb(219, 219, 219) rgb(150, 150, 150);">
+
+                <pre style="text-align: left;line-height: 60px;">
+                <h style="font-size: 60px;">This is heading 1</h>
+                <h style="font-size: 50px;">This is heading 2</h>
+                <h style="font-size: 40px;">This is heading 3</h>
+                <h style="font-size: 30px;">This is heading 4</h>
+                <h style="font-size: 20px;">This is heading 5</h>
+                <h style="font-size: 10px;">This is heading 6</h>
+                </pre>
+            </div>
+
+            <p style="margin-top: 40px;">
+            <h3>Paragraph Tag</h3>
+
+
+            <p>The <b>&lt;p&gt;</b> tag offers a way to structure your text into different paragraphs. Each paragraph of
+                text should go in between an opening &lt;p&gt; and a closing &lt;/p&gt; tag as shown below in the
+                example &minus;</p>
+
+            <h3>Example</h3>
+            <br>
+            <pre class="examples" style="color: rgb(52, 52, 181);margin-top: -40px;">
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                
+                   &lt;head&gt;
+                      &lt;title&gt;Paragraph Example&lt;/title&gt;
+                   &lt;/head&gt;
+                    
+                   &lt;body&gt;
+                      &lt;p&gt;Here is a first paragraph of text.&lt;/p&gt;
+                      &lt;p&gt;Here is a second paragraph of text.&lt;/p&gt;
+                      &lt;p&gt;Here is a third paragraph of text.&lt;/p&gt;
+                   &lt;/body&gt;
+                    
+                &lt;/html&gt;
+            </pre>
+
+            <div class="examples"
+                style="margin-top: 30px;border-radius: 0px;border: 2px  solid black ;border-width: 5px;border-color:rgb(219, 219, 219) rgb(150, 150, 150);">
+
+                <pre style="text-align: left;line-height: -80px;">
+
+                    <span class="dec">&lt;!DOCTYPE html&gt;</span><span class="pln">
+                    </span><span class="tag">&lt;html&gt;</span><span class="pln">
+                    
+                       </span><span class="tag">&lt;head&gt;</span><span class="pln">
+                          </span><span class="tag">&lt;title&gt;</span><span class="pln">Paragraph Example</span><span class="tag">&lt;/title&gt;</span><span class="pln">
+                       </span><span class="tag">&lt;/head&gt;</span><span class="pln">
+
+                       </span><span class="tag">&lt;body&gt;</span><span class="pln">
+                          </span><span class="tag">&lt;p&gt;</span><span class="pln">Here is a first paragraph of text.</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+                          </span><span class="tag">&lt;p&gt;</span><span class="pln">Here is a second paragraph of text.</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+                          </span><span class="tag">&lt;p&gt;</span><span class="pln">Here is a third paragraph of text.</span><span class="tag">&lt;/p&gt;</span><span class="pln">
+                       </span><span class="tag">&lt;/body&gt;</span><span class="pln">
+                        
+                    </span><span class="tag">&lt;/html&gt;</span>
+                </pre>
+
+            </div>
+
+            <br>
+            <hr>
+
+            <h1
+                style="margin-left: 45px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                Note Area : </h1>
+            <div>
+                <form action="/htmlcontent/basictags" method="post">
+                    {% csrf_token %}
+
+                    <input type="text" style="visibility: hidden;" id="code_lang1" name="code_lang_ans1">
+
+                    <textarea class="notes" name="notecontent"
+                        style="width: 90%;margin-left: 45px;height: 100px ;background-color: rgba(127, 255, 212,0.5);border: 1px solid black;padding: 20px;font-size: 20px;font-weight: 400;"
+                        disabled placeholder="Enter text hear ...">{{note}}</textarea>
+
+                    <button class="edit" type="button"
+                        style="margin-left: -200px;padding: 6px 20px;background-color: rgba(112, 226, 112,1);color: black;font-weight: bold;border-radius: 10px;margin-top: 90px;position: absolute;cursor: pointer;">Edit</button>
+
+                    <button class="save" type="submit"
+                        style="margin-left: -100px;padding: 6px 20px;background-color: rgba(112, 226, 112,1);color: black;font-weight: bold;border-radius: 10px;margin-top: 90px;position: absolute;cursor: pointer;">Save</button>
+
+                </form>
+            </div>
+
+
+
+            <br>
+            <br>
+            <hr>
+            <a href="/htmlcontent/overview"><button class="fpreviouspage">&laquo; Previous Page</button></a>
+            <a href="/htmlcontent/intro"><button class="fnextpage">Next Page &raquo;</button></a>
+            <div class="loginpagecopyrighttext">
+                <p style="font-size: 15px;color: rgb(105, 105, 105);">Copyright &copy; 2022 All Rights Reserved by
+                    <a>Balaji Pvt. Ltd.</a>
+                </p>
+            </div>
+            <hr style="margin-top: 17px;"><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</body>
+<script>
+    $(".edit").click(function () {
+
+        $(".notes").prop("disabled", false);
+    });
+
+    $(".save").click(function () {
+
+        $(".notes").prop("disabled", true);
+        var txt = $(".notes").val();
+        $('#code_lang1').attr('value', txt);
+
+    });
+
+</script>
+
+</html>

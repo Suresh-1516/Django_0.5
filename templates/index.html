@@ -1,0 +1,413 @@
+{% load static %}
+<!DOCTYPE html>
+
+<head>
+    <title>Programming Language</title>
+    <link rel="icon" href="{% static 'img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Rubik+Bubbles&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <style>
+        .categories a,
+        .links a {
+            color: rgb(185, 185, 185);
+        }
+
+        .categories a:hover,
+        .links a:hover {
+            color: rgb(21, 223, 81);
+        }
+
+        .card {
+
+            margin-top: -10px;
+            margin-right: 60px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="home">
+
+        <header class="header">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'img\logo.png' %}"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li id="languagebtn"><a>Languages</a></li>
+                    <li id="exercisesbtn"><a>Exercises</a></li>
+                    <li id="questionsbtn"><a>Premiums</a></li>
+                    <li id="mycodebtn"><a>My Code</a></li>
+                </ul>
+
+                <div class="searchandlogin">
+                    <!-- <button class="loginbtn" id="login"><a href="{% url 'logout' %}">Log out</a> </button> -->
+                    <img src="{% static 'img/user.png' %}"
+                        style="width: 30px;position: absolute;margin-left: 65px;margin-top: 31px;">
+                    <button class="loginbtn" id="login">
+                        {% if user.is_authenticated %}
+                        <a style="position: relative;padding-left: 20px;margin-right: -10px;"
+                            id="btnuser">{{user.username}} </a>
+                        {% else %}
+                        <a href="{% url 'login' %}" style="position: relative;padding-left: 20px;" id="btnlogin">Log in
+                        </a>
+                        {% endif %}
+                        <!-- <img src="{% static 'img/boy.png'%}"> --></button>
+                    <!-- <label id="user_name">Eerhs Mar</label></button> -->
+                </div>
+                <button class="icongt"><img src="{% static 'img/icongt.png' %}"></button>
+                <div id="google_element">
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="slides">
+            <div class="languagesslide" id="lslide">
+                <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>HTML</a>
+                <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>JAVA</a>
+                <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>PYTHON</a>
+                <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>C++</a>
+                <a href="/htmlcontent/intro" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>PHP</a>
+            </div>
+
+            <div class="exercisesslide">
+                <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>Html </a>
+                <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>Java </a>
+                <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>Python </a>
+                <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>C++ </a>
+                <a href="/htmlex/{{1}}" style="text-decoration: none;"><i class="fa fa-circle"
+                        style="font-size: 20px;padding-right: 20px;"></i>Php </a>
+            </div>
+
+            <div class="premiumsslide">
+                <a href="/premium/java" style="text-decoration: none;"><i class="fa fa-trophy"
+                        style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Java</a>
+                <a href="/premium/cpp" style="text-decoration: none;"><i class="fa fa-trophy"
+                        style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced C++</a>
+                <a href="/premium/python" style="text-decoration: none;"><i class="fa fa-trophy"
+                        style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Python</a>
+                <a href="/premium/php" style="text-decoration: none;"><i class="fa fa-trophy"
+                        style="font-size: 25px;padding-right: 20px;color: rgb(255, 230, 0);"></i>Advanced Php</a>
+            </div>
+
+            <div class="mycodeslide">
+                <a href="{% url 'savecode' %}" style="text-decoration: none;"><i class="fa fa-save"
+                        style="font-size: 25px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Save
+                    Code</a>
+                <a href="/doubt/home" style="text-decoration: none;"><i class="fa fa-assistive-listening-systems"
+                        style="font-size: 28px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Doubt </a>
+                <a href="{% url 'htmlquestions' %}" style="text-decoration: none;"><i class="fa fa-question-circle-o"
+                        style="font-size: 28px;padding-right: 20px;color: rgb(130, 168, 250);"></i>Questions</a>
+            </div>
+        </div>
+
+        <div class="introductions">
+
+            <div class="video">
+
+                <center>
+                    <video autoplay muted loop id="myVideo">
+                        <source src="{% static 'img/ok.mp4' %} " type="video/mp4">
+                    </video>
+                </center>
+
+                {% if user.is_authenticated %}
+                <div class="card" id="card" style="position: absolute;">
+                    <div class="upper">
+                        <img src="{% static 'img/boy.png' %}" class="img" style="background-color: rgb(167, 198, 255);">
+                    </div>
+                    <div class="upload">
+                        <a href="###"> <i class="fa fa-camera"></i> </a>
+                    </div>
+                    <br>
+                    <h2 id="name">@ {{user.username}}</h2>
+                    <br>
+
+                    <div class="details">
+                        <br>
+
+                        <i class="fa fa-user" aria-hidden="true"></i>Name : {{user.first_name}} {{user.last_name}}<br>
+                        <p></p>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>{{user.email}}<br>
+                    </div>
+                    <div class="social">
+                        <a href="{% url 'logout' %}" id="logout">Log out</a>
+                    </div>
+                </div>
+
+                {% endif %}
+            </div>
+
+            <div class="content">
+                <h1>Learn Programming</h1>
+                <p>with programming language.com</p>
+            </div>
+
+            <div class="searchbar" align="middle">
+                <input type="text" placeholder="Search.." align="middle" id="search">
+            </div>
+
+            <div class="searchbtn" align="middle">
+
+                <button type="submit" align="middle"><img src="{% static 'img/icon.png' %}" width="35px"></button>
+            </div>
+
+        </div>
+
+        <div class="midline"></div>
+
+        <div class="midcontent">
+            <img src="" class="gradiant">
+
+            <div class="html">
+
+                <box class="htmlimg">
+                    <img src="{% static 'img/html.png' %} ">
+                </box>
+                <h2>HTML</h2>
+                <p>The language for building web pages</p>
+                <a href="/htmlcontent/intro"><button>Let's Start </button></a>
+
+            </div>
+
+            <div class="python">
+
+                <box class="pythonimg">
+                    <!-- <img src="{% static 'img/pythonlogo.png' %}"> -->
+                    <img src="/media/premium/images/pythonlogo.png">
+                </box>
+                <h2>PYTHON</h2>
+                <p>A popular programming language</p>
+                <a href="/htmlcontent/intro"><button> Let's Start </button></a>
+
+            </div>
+
+            <div class="java">
+
+                <box class="javaimg">
+                    <img src="{% static 'img/javalogo.png' %}">
+                </box>
+                <h2>JAVA</h2>
+                <p>A platform independent programming language</p>
+                <a href="/htmlcontent/intro"><button> Let's Start </button></a>
+
+            </div>
+
+            <div class="cpp">
+
+                <box class="cppimg">
+                    <img src="{% static 'img/cpplogo.png' %}">
+                </box>
+                <h2>C++</h2>
+                <p>A programming language</p>
+                <a href="/htmlcontent/intro"><button> Let's Start </button></a>
+
+            </div>
+
+        </div>
+
+        <!-- <div> feedback block past hear</div> -->
+
+        <footer class="footer">
+
+            <div class="endline"></div>
+
+            <div class="container" align="middle">
+
+                <div class="about">
+                    <p>ABOUT</p>
+                    <pre>
+                    Programming Language .com CODE WANTS TO BE SIMPLE is an initiative to help
+                    upcoming programmers with the code. Programming Languages focus on providing 
+                    the most efficient code or information as the code wants to be simple. We will help 
+                    programmers build up concepts in different programming languages that include  
+                    C++, Java, Python, HTML, and CSS.
+                </pre>
+                </div>
+
+                <div class="categories">
+
+                    <p>categories </p>
+                    <ul>
+                        <li><a href="/htmlcontent/intro" style="text-decoration: none;">Java</a></li><br>
+                        <li><a href="/htmlcontent/intro" style="text-decoration: none;">PHP</a></li><br>
+                        <li><a href="/htmlcontent/intro" style="text-decoration: none;">Python</a></li><br>
+                        <li><a href="/htmlcontent/intro" style="text-decoration: none;">C++</a></li><br>
+                        <li><a href="/htmlcontent/intro" style="text-decoration: none;">Html</a></li><br>
+                    </ul>
+                </div>
+
+                <div class="links">
+                    <p>Quick Links</p>
+                    <ul>
+                        <li><a href="https://drive.google.com/file/d/12D1RX8Y42vJtKbDTLitwpKEijWqNWLn_/view?usp=sharing" style="text-decoration: none;">About Us</a></li><br>
+                        <li><a href="https://drive.google.com/file/d/12D1RX8Y42vJtKbDTLitwpKEijWqNWLn_/view?usp=sharing" style="text-decoration: none;">Contribute</a></li><br>
+                        <li><a href="https://drive.google.com/file/d/12D1RX8Y42vJtKbDTLitwpKEijWqNWLn_/view?usp=sharing" style="text-decoration: none;">Privacy Policy</a></li><br>
+                        <li><a href="/feedback/home" style="text-decoration: none;">Feedbacks</a></li><br>
+                    </ul>
+                </div>
+                <hr>
+            </div>
+
+            <div class="copyrighttext">
+                <p>Copyright &copy; 2022 All Rights Reserved by
+                    <a>Balaji Pvt. Ltd.</a>
+                </p>
+            </div>
+
+            <div class="socialmideaicon">
+                <ul>
+                    <li><a class="facebook" href="https://www.facebook.com/"
+                            style="text-decoration: none;color: aliceblue;"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="twitter" href="https://www.twitter.com/"
+                            style="text-decoration: none;color: aliceblue;"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="instagram" href="https://www.instagram.com/"
+                            style="text-decoration: none;color: aliceblue;"><i class="fa fa-instagram"></i></a></li>
+                    <li><a class="linkedin" href="https://www.linkedin.com/"
+                            style="text-decoration: none;color: aliceblue;"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="youtube" href="https://www.youtube.com/@arrayofsilicon4711"
+                            style="text-decoration: none;color: aliceblue;"><i class="fa fa-youtube-play"></i></a></li>
+                </ul>
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+
+<script>
+
+
+    $(document).ready(function () {
+
+        $(".card").hide();
+
+        $('#btnuser').click(function () {
+
+            if ($('.card').is(':hidden')) {
+                $(".card").slideDown("show");
+
+            }
+            else {
+                $(".card").slideUp("hide");
+            }
+        });
+
+    });
+
+    $(document).ready(function () {
+
+        $(window).scroll(function () {
+
+            $(".card").slideUp("hide");
+
+        });
+
+    });
+
+    $(document).ready(function () {
+
+
+        $('#logout').click(function () {
+
+            alert("\n Now You Logged Out ! ");
+
+        });
+    });
+
+    $(".card").slideUp("hide");
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="endline"></div>
+
+        
+<div class="feedbackblock">
+
+    <button class="rearward"><img src="img/next.png"></button>
+    <button class="forward"><img src="img/next.png"></button>
+
+    <div class="feedback1">
+        <p class="userfeedback1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ut deleniti a cum quo maiores optio at asperiores eaque officia ipsa fugiat earum, alias voluptatibus officiis libero quia corporis tempore.</p>
+        <div class="userdp1">
+            <p class="username1">Vikash Bhai</p>
+            <img src="img/boy.png">
+        </div>
+    </div>
+
+    <div  class="feedback2">
+        <p class="userfeedback2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ut deleniti a cum quo maiores optio at asperiores eaque officia ipsa fugiat earum, alias voluptatibus officiis libero quia corporis tempore.</p>
+        <div class="userdp2">
+            <img src="img/girl.png">
+            <p class="username2">Raju Japan</p>
+        </div>
+
+    </div>
+
+
+</div> -->
